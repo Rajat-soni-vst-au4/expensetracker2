@@ -49,5 +49,15 @@ function displayExpense() {
 
         //budle hit the UI
         expenseList.appendChild(li);
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = "Delete";
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.addEventListener("click", () => deleteExpense(index));
+
+        let editBtn = document.createElement("button");
+        editBtn.innerHTML = "Edit";
+        editBtn.classList.add("edit-btn");
+        editBtn.addEventListener("click", () => editExpense(index));
     }
 }
