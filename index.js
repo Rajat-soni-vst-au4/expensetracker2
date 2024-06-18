@@ -26,5 +26,28 @@ function addExpense(){
         let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
         expenses.push(expense);
         localStorage.setItem("expenses", JSON.stringify(expenses));
+
     
+    displayExpense();
+}
+
+function displayExpense() {
+
+    let expenseList = document.getElementById("expense-list");
+    let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+    expenseList.innerHTML = "";
+    // console.log(expenses.length)
+
+    for(let i=0; i<expenses.length; i++){
+
+        let li = document.createElement("li");
+
+        li.innerHTML = expenses.amount +"      " + expenses.category + "      " + expenses.type;
+        li.appendChild(editBtn);
+        li.appendChild(deleteBtn);
+
+        //budle hit the UI
+        expenseList.appendChild(li);
+    }
 }
